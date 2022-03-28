@@ -10,12 +10,19 @@
 
                 <div class="card-body">
                     @if(session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
-                    You are logged in!
+                    Selamat datang <strong>{{ Auth::user()->name }}</strong>
+                </div>
+
+                <div class="content">
+                    <div class="title m-b-md">
+                        <div class="clockStyle" id="clock">123</div>
+                    </div>
+
                 </div>
             </div>
         </div>
