@@ -24,14 +24,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
+    Route::get('users/izin', 'UsersController@izinPage')->name('users.izin');
     Route::resource('users', 'UsersController');
 
     // Time Entries
     Route::delete('time-entries/destroy', 'TimeEntriesController@massDestroy')->name('time-entries.massDestroy');
     Route::get('time-entries/show-current', 'TimeEntriesController@showCurrent')->name('time-entries.showCurrent');
+    Route::get('time-entries/page', 'TimeEntriesController@absenPage')->name('time-entries.page');
     Route::post('time-entries/update-current', 'TimeEntriesController@updateCurrent')->name('time-entries.updateCurrent');
     Route::resource('time-entries', 'TimeEntriesController');
 
     // Reports
     Route::get('reports', 'ReportsController@index')->name('reports.index');
+
 });

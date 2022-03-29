@@ -48,6 +48,15 @@
                                     {{ trans('cruds.user.title') }}
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? '' : '' }}">
+                                    <i class="fa-fw fas fa-user nav-icon">
+
+                                    </i>
+                                    {{ trans('cruds.user.izin') }}
+                                </a>
+                            </li>
                         @endcan
                     </ul>
                 </li>
@@ -65,10 +74,28 @@
             @if (!auth()->user()->is_admin)
             <li class="nav-item" id="timer">
                 <a href="#" class="nav-link">
-                    <i class="fa-fw fas fa-clock nav-icon">
+                    <i class="fa-fw fas fa-users nav-icon">
 
                     </i>
                     <span>Absen Masuk</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route("admin.time-entries.page") }}" class="nav-link">
+                    <i class="fa-fw fas fa-eye nav-icon">
+
+                    </i>
+                    <span>Absen Page</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route("admin.users.izin") }}" class="nav-link">
+                    <i class="fa-fw fas fa-pen nav-icon">
+
+                    </i>
+                    Izin
                 </a>
             </li>
             @endif
@@ -77,9 +104,12 @@
                     <i class="fa-fw fas fa-calendar nav-icon">
 
                     </i>
-                    Laporan Chart Absen
+                    Laporan Jam Kerja
                 </a>
             </li>
+
+            
+
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">

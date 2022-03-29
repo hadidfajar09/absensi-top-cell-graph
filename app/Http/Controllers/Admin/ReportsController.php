@@ -21,7 +21,7 @@ class ReportsController extends Controller
         $timeEntries = $reportService->generateReport($request->input('employee'));
         if ($timeEntries) {
             $chart = new LaravelChart([
-                'chart_title'           => 'Hours of work per day',
+                'chart_title'           => 'Jam Bekerja Perhari',
                 'chart_type'            => 'line',
                 'report_type'           => 'group_by_date',
                 'model'                 => 'App\\TimeEntry',

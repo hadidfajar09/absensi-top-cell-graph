@@ -83,4 +83,9 @@ class UsersController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function izinPage()
+    {
+        return view('admin.izin.index');
+    }
 }

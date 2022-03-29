@@ -90,7 +90,7 @@
   </style>
 </head>
 
-<body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show" onload="configure2();">
   <header class="app-header navbar">
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
       <span class="navbar-toggler-icon"></span>
@@ -177,6 +177,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.8.2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
   <script src="{{ asset('js/main.js') }}"></script>
   <script>
     $(function() {
@@ -317,6 +318,29 @@
         document.getElementById("clock").innerHTML = hrs + ':' + min + ':' + sec + ' ' + en;
     }
   </script>
+
+
+
+<script type="text/javascript">
+    function configure(){
+        Webcam.set({
+            width: 400,
+            height: 360,
+            image_format: 'jpeg',
+            jpeg_quality: 90
+        });
+
+        Webcam.attach('#my_camera')
+    }
+
+    
+</script>
+
+
+
+
+
+
   @yield('scripts')
 </body>
 

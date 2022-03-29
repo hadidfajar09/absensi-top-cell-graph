@@ -15,18 +15,27 @@
                     </div>
                     @endif
 
-                    Selamat datang <strong>{{ Auth::user()->name }}</strong>
+                    <h4>Selamat datang di Absensi</h4>
+                    <h3 style="font-weight: bold;">PT. Top Indo Maju</h3>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="title m-b-md">
-                        <div class="clockStyle" id="clock">123</div>
+                <center>
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header">{{ Auth::user()->name }}</div>
+                    <div class="card-body text-dark">
+                      <h5 class="card-title">{{ Auth::user()->jabatan }}</h5>
+                      <p class="card-text">{{ Auth::user()->outlet }}</p>
                     </div>
+                  </div>
+                </center>
 
-                </div>
+                 
+
             </div>
         </div>
     </div>
+   
+
 </div>
 @endsection
 @section('scripts')

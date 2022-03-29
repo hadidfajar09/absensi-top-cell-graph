@@ -57,6 +57,11 @@ class TimeEntriesController extends Controller
         return redirect()->route('admin.time-entries.index');
     }
 
+    public function absenPage()
+    {
+        return view('admin.absen.index');
+    }
+
     public function showCurrent()
     {
         $timeEntry = TimeEntry::whereNull('time_end')

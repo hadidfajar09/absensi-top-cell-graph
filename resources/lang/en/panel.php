@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Absensi Karyawan',
+    'site_title' => 'Absensi Online',
 ];

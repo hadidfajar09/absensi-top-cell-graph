@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Reports
+        Laporan Jam Kerja
     </div>
 
     <div class="card-body">
@@ -32,10 +32,10 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        Day
+                                        Tanggal
                                     </th>
                                     <th>
-                                        Total time
+                                        Total waktu
                                     </th>
                                 </tr>
                             </thead>
