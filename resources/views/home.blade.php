@@ -18,7 +18,7 @@
                     Selamat datang <strong>{{ Auth::user()->name }}</strong>
                 </div>
 
-                <div class="content">
+                <div class="col-md-12">
                     <div class="title m-b-md">
                         <div class="clockStyle" id="clock">123</div>
                     </div>

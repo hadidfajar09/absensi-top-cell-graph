@@ -83,7 +83,7 @@ class TimeEntriesController extends Controller
             ]);
 
             return response()->json([
-                'status' => 'Work time has stopped at [' . gmdate("H:i:s", $timeEntry->total_time) . '] hours'
+                'status' => 'Telah Bekerja Selama [' . gmdate("H:i:s", $timeEntry->total_time) . '] Jam'
             ]);
         } else {
             auth()->user()->timeEntries()->create([
@@ -91,7 +91,7 @@ class TimeEntriesController extends Controller
             ]);
 
             return response()->json([
-                'status' => 'Work time has started'
+                'status' => 'Absen Masuk Berhasil'
             ]);
         };
     }

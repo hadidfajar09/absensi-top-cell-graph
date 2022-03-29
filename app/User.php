@@ -33,6 +33,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'jabatan',
+        'outlet',
         'created_at',
         'updated_at',
         'deleted_at',

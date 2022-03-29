@@ -10,10 +10,13 @@ class UsersTableSeeder extends Seeder
         $users = [
             [
                 'id'             => 1,
-                'name'           => 'Admin',
-                'email'          => 'admin@admin.com',
+                'name'           => 'HRD',
+                'email'          => 'hrd@top.com',
                 'password'       => '$2y$10$Vr/mYRcIkhXVoBryt538Au/B/X64uDT91KtDJVrbIQc5IRp2IdPVS',
+                'jabatan'        => 'HRD',
+                'outlet'        => 'Head Office',
                 'remember_token' => null,
+                'created_at' => now()
             ]
         ];
 
@@ -21,10 +24,13 @@ class UsersTableSeeder extends Seeder
         {
             array_push($users, [
                 'id'             => $i+1,
-                'name'           => 'Employee ' . $i,
-                'email'          => 'employee' . $i . '@employee' . $i . '.com',
+                'name'           => 'karyawan ' . $i,
+                'email'          => 'karyawan' . $i . '@top' . $i . '.com',
+                'jabatan'        => 'Pegawai',
+                'outlet'        => 'Head Office',
                 'password'       => '$2y$10$Vr/mYRcIkhXVoBryt538Au/B/X64uDT91KtDJVrbIQc5IRp2IdPVS',
                 'remember_token' => null,
+                'created_at' => now()
             ]);
         }
 

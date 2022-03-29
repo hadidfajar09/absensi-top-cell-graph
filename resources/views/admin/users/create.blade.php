@@ -39,6 +39,29 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
             </div>
+            
+            <div class="form-group">
+                <label class="required" for="jabatan">Jabatan</label>
+                <input class="form-control {{ $errors->has('jabatan') ? 'is-invalid' : '' }}" type="text" name="jabatan" id="jabatan" value="{{ old('jabatan') }}" required>
+                @if($errors->has('jabatan'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('jabatan') }}
+                    </div>
+                @endif
+                
+            </div>
+
+            <div class="form-group">
+                <label class="required" for="outlet">Outlet</label>
+                <input class="form-control {{ $errors->has('outlet') ? 'is-invalid' : '' }}" type="text" name="outlet" id="outlet" value="{{ old('outlet') }}" required>
+                @if($errors->has('outlet'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('outlet') }}
+                    </div>
+                @endif
+                
+            </div>
+
             <div class="form-group">
                 <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
                 <div style="padding-bottom: 4px">

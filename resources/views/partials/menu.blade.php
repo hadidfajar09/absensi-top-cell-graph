@@ -58,7 +58,7 @@
                         <i class="fa-fw fas fa-clock nav-icon">
 
                         </i>
-                        {{ trans('cruds.timeEntry.title') }}
+                       Riwayat Kerja
                     </a>
                 </li>
             @endcan
@@ -68,7 +68,7 @@
                     <i class="fa-fw fas fa-clock nav-icon">
 
                     </i>
-                    <span>Start work</span>
+                    <span>Absen Masuk</span>
                 </a>
             </li>
             @endif
@@ -77,7 +77,7 @@
                     <i class="fa-fw fas fa-calendar nav-icon">
 
                     </i>
-                    Reports
+                    Laporan Chart Absen
                 </a>
             </li>
             <li class="nav-item">
@@ -99,7 +99,7 @@
 <script>
 function switchWorkStatus(data) {
     let $timer = $("#timer span");
-    let text = $timer.text() == 'Stop work' ? 'Start work' : 'Stop work';
+    let text = $timer.text() == 'Absen Pulang' ? 'Absen Masuk' : 'Absen Pulang';
     $timer.text(text);
 
     Swal.fire({
