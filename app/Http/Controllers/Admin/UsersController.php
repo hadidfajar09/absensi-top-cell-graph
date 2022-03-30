@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Izin;
 use App\Role;
 use App\User;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class UsersController extends Controller
@@ -86,6 +88,53 @@ class UsersController extends Controller
 
     public function izinPage()
     {
-        return view('admin.izin.index');
+        $izinList = Izin::all();
+
+        return view('admin.izin.index', compact('izinList'));
+    }
+
+    public function IzinCreate()
+    {
+
+        return view('admin.users.izin.index');
+    }
+
+    public function izinStore(Request $request)
+    {
+        $validasi = $request->validate([
+            'alasan' => 'required|max:255',
+            'rentang' => 'required|max:255',
+            'bukti' => 'image|mimes:jpg,png,jpeg|max:2048',
+        ]);
+
+        if($request->file('bukti')){
+            $image = $request->file('bukti');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $image->storeAs('img/izin/',$name_gen);
+            $save_url = 'img/izin/'.$name_gen;
+
+
+            Izin::insert([
+                'user_id' => Auth::user()->id,
+                'alasan' => $request->alasan,
+                'rentang' => $request->rentang,
+                'bukti' => $save_url
+            ]);
+        }else{
+            Izin::insert([
+                'user_id' => Auth::user()->id,
+                'alasan' => $request->alasan,
+                'rentang' => $request->rentang,
+            ]);
+    
+        }
+    
+        
+        return redirect()->route('admin.home');
+    }
+
+    public function izinDelete($id)
+    {
+        
     }
 }

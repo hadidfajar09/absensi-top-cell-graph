@@ -9,9 +9,9 @@
         @if(auth()->user()->is_admin)
             <form>
                 <div class="form-group">
-                    <label class="required" for="employee">Employee</label>
+                    <label class="required" for="employee">Karyawan</label>
                     <select class="form-control" name="employee" id="employee">
-                        <option hidden>Select an employee</option>
+                        <option hidden>Pilih Karyawan</option>
                         @foreach($employees as $employee)
                             <option value="{{ $employee->id }}" {{ request()->input('employee') == $employee->id ? 'selected' : '' }}>{{ $employee->name }}</option>
                         @endforeach

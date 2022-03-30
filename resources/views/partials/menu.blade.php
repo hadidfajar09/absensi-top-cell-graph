@@ -83,7 +83,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route("admin.users.izin") }}" class="nav-link">
+                <a href="{{ route("admin.users.izin.create") }}" class="nav-link">
                     <i class="fa-fw fas fa-pen nav-icon">
 
                     </i>
@@ -96,7 +96,7 @@
                     <i class="fa-fw fas fa-calendar nav-icon">
 
                     </i>
-                    Laporan Jam Kerja
+                    Statistik
                 </a>
             </li>
 

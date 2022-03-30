@@ -7,13 +7,10 @@
                 <div class="card-header">
                     Absen Page
                 </div>
-
-                <div class="col-md-12">
-                    <div class="title m-b-md">
-                        <div class="clockStyle" id="clock" style="font-size: 60px;">123</div>
-                    </div>
-
+                <div class="card-body">
+                    <div id="clock" style="font-size: 60px;">123</div>
                 </div>
+                    
 
                 
 
@@ -24,11 +21,13 @@
 
     <center>
     
+        <div class="image-fluid">
 
-        <div id="aku_camera" >
+        
+        <div id="aku_camera">
     
         </div>
-    
+    </div>
         <div id="result">
     
         </div>
@@ -36,7 +35,7 @@
 <br>
 
     <div id="timer">
-    <a href="" type="button" class="btn btn-secondary">
+    <a href="#" type="button" class="btn btn-secondary">
         <i class="fa-fw fas fa-users nav-icon">
 
         </i><span>Absen Masuk</span>
@@ -59,8 +58,8 @@
 <script type="text/javascript">
     function configure2(){
         Webcam.set({
-            width: 400,
-            height: 300,
+            width: 300,
+            height: 200,
             image_format: 'jpeg',
             jpeg_quality: 90
         });

@@ -2,21 +2,17 @@
 
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\MultiTenantModelTrait;
 
-class Izin extends Model
+class Shift extends Model
 {
-    use MultiTenantModelTrait;
-
-    public $table = 'izins';
+    public $table = 'shifts';
 
     protected $fillable = [
         'user_id',
-        'alasan',
-        'rentang',
-        'bukti',
+        'nama_shift',
+        'masuk',
+        'pulang',
         'created_at',
         'updated_at',
     ];
