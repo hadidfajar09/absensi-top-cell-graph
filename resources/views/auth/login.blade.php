@@ -4,6 +4,10 @@
     <div class="col-md-6">
         <div class="card mx-4">
             <div class="card-body p-4">
+                <div class="text-center">
+                    <img src="{{ asset('img/logo/logo.jpg') }}" alt="" width="70px">
+                </div>
+
                 <h1>Absensi PT. Top Indo Maju</h1>
 
                 <p class="text-muted">{{ trans('global.login') }}</p>

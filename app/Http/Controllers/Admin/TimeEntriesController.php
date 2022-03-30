@@ -62,6 +62,11 @@ class TimeEntriesController extends Controller
         return view('admin.absen.index');
     }
 
+    public function absenStore(Request $request)
+    {
+        
+    }
+
     public function showCurrent()
     {
         $timeEntry = TimeEntry::whereNull('time_end')

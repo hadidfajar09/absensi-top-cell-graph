@@ -50,8 +50,8 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? '' : '' }}">
-                                    <i class="fa-fw fas fa-user nav-icon">
+                                <a href="{{ route("admin.users.izin") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? '' : '' }}">
+                                    <i class="fa-fw fas fa-info nav-icon">
 
                                     </i>
                                     {{ trans('cruds.user.izin') }}
@@ -72,21 +72,13 @@
                 </li>
             @endcan
             @if (!auth()->user()->is_admin)
-            <li class="nav-item" id="timer">
-                <a href="#" class="nav-link">
-                    <i class="fa-fw fas fa-users nav-icon">
-
-                    </i>
-                    <span>Absen Masuk</span>
-                </a>
-            </li>
 
             <li class="nav-item">
                 <a href="{{ route("admin.time-entries.page") }}" class="nav-link">
                     <i class="fa-fw fas fa-eye nav-icon">
 
                     </i>
-                    <span>Absen Page</span>
+                    <span>Absen</span>
                 </a>
             </li>
 
@@ -126,7 +118,7 @@
 
 @section('scripts')
 @parent
-<script>
+{{-- <script>
 function switchWorkStatus(data) {
     let $timer = $("#timer span");
     let text = $timer.text() == 'Absen Pulang' ? 'Absen Masuk' : 'Absen Pulang';
@@ -158,5 +150,5 @@ $(function() {
         });
     });
 });
-</script>
+</script> --}}
 @endsection
