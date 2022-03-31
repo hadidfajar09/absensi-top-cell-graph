@@ -41,10 +41,26 @@
                     </tr>
                     <tr>
                         <th>
+                            Selfie Datang
+                        </th>
+                        <td>
+                            <img src="{{ asset('img/izin/1728705014703784.png') }}" width="300px" height="200px">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.timeEntry.fields.time_end') }}
                         </th>
                         <td>
                             {{ $timeEntry->time_end }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Selfie Pulang
+                        </th>
+                        <td>
+                            <img src="{{ asset('img/izin/1728705014703784.png') }}" width="300px" height="200px">
                         </td>
                     </tr>
                 </tbody>

@@ -69,6 +69,8 @@ class TimeEntriesController extends Controller
 
     public function showCurrent()
     {
+        $selfie_datang = 
+
         $timeEntry = TimeEntry::whereNull('time_end')
             ->whereHas('user', function ($query) {
                 $query->where('id', auth()->id());
@@ -88,16 +90,33 @@ class TimeEntriesController extends Controller
 
         if ($timeEntry)
         {
+            // if(isset($_FILES["webcam"]["tmp_name"])){
+            //     $tmpName = $_FILES["webcam"]["tmp_name"];
+            //     $name_gen = hexdec(uniqid()).'.'.$tmpName->getClientOriginalExtension();    
+            //     $tmpName->storeAs('img/selfie_pulang/',$name_gen);    
+            //     $save_selfie_depan = 'img/selfie_pulang/'.$name_gen;    
+            // }
+
             $timeEntry->update([
-                'time_end' => now()
+                'time_end' => now(),
+                // 'selfie_pulang' => $save_selfie_depan
             ]);
 
             return response()->json([
                 'status' => 'Telah Bekerja Selama [' . gmdate("H:i:s", $timeEntry->total_time) . '] Jam'
             ]);
         } else {
+
+            // if(isset($_FILES["webcam"]["tmp_name"])){
+            //     $tmpName = $_FILES["webcam"]["tmp_name"];
+            //     $name_gen = hexdec(uniqid()).'.'.$tmpName->getClientOriginalExtension();    
+            //     $tmpName->storeAs('img/selfie_masuk/',$name_gen);    
+            //     $save_selfie_belakang = 'img/selfie_masuk/'.$name_gen;    
+            // }
+
             auth()->user()->timeEntries()->create([
-                'time_start' => now()
+                'time_start' => now(),
+                // 'selfie_pulang' => $save_selfie_belakang
             ]);
 
             return response()->json([

@@ -27,15 +27,17 @@
         <div id="aku_camera">
     
         </div>
-    </div>
+        <br>
         <div id="result">
     
         </div>
+    </div>
+        
 </center>
 <br>
 
     <div id="timer">
-    <a href="#" type="button" class="btn btn-secondary">
+    <a href="#" type="button" class="btn btn-secondary" onclick="saveSnap()">
         <i class="fa-fw fas fa-users nav-icon">
 
         </i><span>Absen Masuk</span>
@@ -64,7 +66,25 @@
             jpeg_quality: 90
         });
 
-        Webcam.attach('#aku_camera')
+        Webcam.attach('#aku_camera');
+    }
+
+    function saveSnap(){
+        Webcam.snap(function(data_uri){
+            document.getElementById('result').innerHTML = 
+            '<img id="webcam" src = "'+data_uri+'" style="width: 300px; height: 200px;">';
+        });
+
+        Webcam.reset();
+
+        var base64image = document.getElementById("webcam").src;
+        // Webcam.upload(base64image, 'function.php', function(code,text){
+        //     alert('save success');
+        // });
+
+        configure2();
+
+
     }
 
     
