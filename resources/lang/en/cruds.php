@@ -42,6 +42,7 @@ return [
     'user'           => [
         'title'          => 'Users',
         'izin'          => 'Izin',
+        'shift'          => 'Shift',
         'title_singular' => 'User',
         'fields'         => [
             'id'                       => 'ID',

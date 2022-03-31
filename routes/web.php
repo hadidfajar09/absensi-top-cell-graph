@@ -25,6 +25,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::get('users/izin', 'UsersController@izinPage')->name('users.izin');
+    Route::get('users/shift', 'UsersController@shiftPage')->name('users.shift');
+    Route::get('users/shift/create', 'UsersController@shiftCreate')->name('users.shift.create');
+    Route::post('users/shift/store', 'UsersController@shiftStore')->name('users.shift.store');
     Route::get('users/izin/create', 'UsersController@izinCreate')->name('users.izin.create');
     Route::post('users/izin/store', 'UsersController@izinStore')->name('users.izin.store');
     Route::resource('users', 'UsersController');

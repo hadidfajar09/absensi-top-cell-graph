@@ -25,6 +25,8 @@ class TimeEntry extends Model
         'user_id',
         'time_end',
         'time_start',
+        'foto_start',
+        'foto_end',
         'created_at',
         'updated_at',
         'deleted_at',

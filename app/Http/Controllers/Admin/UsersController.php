@@ -8,6 +8,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Izin;
 use App\Role;
+use App\Shift;
 use App\User;
 use Gate;
 use Illuminate\Http\Request;
@@ -128,7 +129,6 @@ class UsersController extends Controller
             ]);
     
         }
-    
         
         return redirect()->route('admin.home');
     }
@@ -136,5 +136,35 @@ class UsersController extends Controller
     public function izinDelete($id)
     {
         
+    }
+
+    public function shiftPage()
+    {
+      $shifts =  Shift::all();
+
+        return view('admin.shift.index', compact('shifts'));
+    }
+
+    public function shiftCreate()
+    {
+        return view('admin.shift.create');
+    }
+    
+    public function shiftStore(Request $request)
+    {
+        $validasi = $request->validate([
+            'nama_shift' => 'required|max:255',
+            'masuk' => 'required|max:255',
+            'pulang' => 'required|max:255',
+        ]);
+
+        Shift::insert([
+            'nama_shift' => $request->nama_shift,
+            'masuk' => $request->masuk,
+            'pulang' => $request->pulang,
+        ]);
+
+        return redirect()->route('admin.users.shift');
+
     }
 }

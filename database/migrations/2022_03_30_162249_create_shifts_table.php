@@ -15,11 +15,9 @@ class CreateShiftsTable extends Migration
     {
         Schema::create('shifts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
             $table->string('nama_shift');
             $table->dateTime('masuk');
             $table->dateTime('pulang')->nullable();
-
             $table->timestamps();
         });
     }

@@ -50,11 +50,20 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route("admin.users.izin") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? '' : '' }}">
+                                <a href="{{ route("admin.users.izin") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/izin') ? '' : '' }}">
                                     <i class="fa-fw fas fa-info nav-icon">
 
                                     </i>
                                     {{ trans('cruds.user.izin') }}
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route("admin.users.shift") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/shift') ? '' : '' }}">
+                                    <i class="fa-fw fas fa-id-card nav-icon">
+
+                                    </i>
+                                    {{ trans('cruds.user.shift') }}
                                 </a>
                             </li>
                         @endcan

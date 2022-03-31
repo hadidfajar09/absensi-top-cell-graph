@@ -9,7 +9,6 @@ class Shift extends Model
     public $table = 'shifts';
 
     protected $fillable = [
-        'user_id',
         'nama_shift',
         'masuk',
         'pulang',

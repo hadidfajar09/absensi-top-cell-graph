@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 @section('content')
-@can('time_entry_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.time-entries.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.timeEntry.title_singular') }}
-            </a>
-        </div>
+<div style="margin-bottom: 10px;" class="row">
+    <div class="col-lg-12">
+        <a class="btn btn-success" href="{{ route("admin.users.shift.create") }}">
+            Add Shift
+        </a>
     </div>
-@endcan
+</div>
+
 <div class="card">
     <div class="card-header">
-        Riwayat Kerja
+        List Shift Karyawan
     </div>
+
 
     <div class="card-body">
         <div class="table-responsive">
@@ -22,56 +22,53 @@
                         <th width="10">
 
                         </th>
+                        
                         <th>
-                            {{ trans('cruds.timeEntry.fields.id') }}
+                            Shift
                         </th>
                         <th>
-                            {{ trans('cruds.timeEntry.fields.user') }}
+                            Masuk
                         </th>
                         <th>
-                            {{ trans('cruds.timeEntry.fields.time_start') }}
+                            Pulang
                         </th>
-                        <th>
-                            {{ trans('cruds.timeEntry.fields.time_end') }}
-                        </th>
+                        
                         <th>
                             &nbsp;
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($timeEntries as $key => $timeEntry)
-                        <tr data-entry-id="{{ $timeEntry->id }}">
+                    @foreach($shifts as $key => $row)
+                        <tr data-entry-id="{{ $row->id }}">
                             <td>
 
                             </td>
+                           
+                            
                             <td>
-                                {{ $timeEntry->id ?? '' }}
+                                {{ $row->nama_shift ?? '' }}
                             </td>
                             <td>
-                                {{ $timeEntry->user->name ?? '' }}
+                                {{ $row->masuk ?? '' }}
                             </td>
                             <td>
-                                {{ $timeEntry->time_start ?? '' }}
+                                {{ $row->pulang ?? '' }}
                             </td>
+
                             <td>
-                                {{ $timeEntry->time_end ?? '' }}
-                            </td>
-                            <td>
-                                @can('time_entry_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.time-entries.show', $timeEntry->id) }}">
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.time-entries.show', $row->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
-                                @endcan
 
                                 @can('time_entry_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.time-entries.edit', $timeEntry->id) }}">
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.time-entries.edit', $row->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
                                 @can('time_entry_delete')
-                                    <form action="{{ route('admin.time-entries.destroy', $timeEntry->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <form action="{{ route('admin.time-entries.destroy', $row->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -93,6 +90,7 @@
 @endsection
 @section('scripts')
 @parent
+
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
